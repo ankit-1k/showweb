@@ -134,10 +134,10 @@ const Products = () => {
                     </div>
                 )}
 
-                <div className="cart-btn">
+                <div className="cart-btn" title='View Cart'>
                     <button className="" onClick={handleShowCartForm}>
                         <IoCartOutline className='text-success' size={30} />
-                        <span class="badge bg-danger">
+                        <span class="badge">
                             {cart.length}
                         </span>
                     </button>
