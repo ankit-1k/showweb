@@ -10,6 +10,9 @@
 .mt-lg{
     margin-top: 100px;
 }
+.pointer{
+  cursor: pointer;
+}
 .button {
     padding: 15px 25px;
     border: unset;

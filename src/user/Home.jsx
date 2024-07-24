@@ -101,7 +101,7 @@ const Home = () => {
             <div className="d-flex flex-wrap justify-content-between">
               {
                 productHome.map(item => (
-                  <div class="card-custom mt-3">
+                  <div class="card-custom mt-3 pointer" onClick={()=>navigate('/products')}>
                     <div class="card-img">
                       <img src={item.img} className='product-img' alt="" />
                     </div>

@@ -30,7 +30,7 @@ const Products = () => {
                 setError('Error fetching data');
                 console.error(err);
             } finally {
-                setLoading(false); 
+                setLoading(false);
             }
         };
 
@@ -95,7 +95,7 @@ const Products = () => {
                 <h2 className='mb-5 text-center'>Browse All Products</h2>
                 {loading ? (
                     <div className="loading-container">
-                        <p><Loader/></p>
+                        <p><Loader /></p>
                     </div>
                 ) : (
                     <div className="d-flex justify-content-between md-center flex-wrap">
@@ -134,11 +134,14 @@ const Products = () => {
                     </div>
                 )}
 
-                <button className="cart-btn" onClick={handleShowCartForm}>
-                    <IoCartOutline className='text-success' size={30} /> <span class="badge bg-danger">
-                        {cart.length}
-                    </span>
-                </button>
+                <div className="cart-btn">
+                    <button className="" onClick={handleShowCartForm}>
+                        <IoCartOutline className='text-success' size={30} />
+                        <span class="badge bg-danger">
+                            {cart.length}
+                        </span>
+                    </button>
+                </div>
             </div>
             {isOpensuccess && (
                 <div className="modal-backdrop">
