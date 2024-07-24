@@ -98,7 +98,7 @@ const Home = () => {
         <h3 className='text-center mt-lg mb-5'>Brows Products</h3>
         <div className="row">
           <div className="col">
-            <div className="d-flex flex-wrap justify-content-between">
+            <div className="d-flex flex-wrap justify-content-between res-center">
               {
                 productHome.map(item => (
                   <div class="card-custom mt-3 pointer" onClick={()=>navigate('/products')}>

@@ -355,3 +355,17 @@
       justify-content: center !important;
     }
 }
+@media (max-width: 423px) {
+  .res-center{
+    justify-content: center !important;
+  }
+}
+@media (max-width: 500px) {
+  .res-margin{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .w-50{
+    width: 80% !important;
+  }
+}

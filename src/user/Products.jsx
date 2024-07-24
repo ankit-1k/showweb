@@ -134,7 +134,7 @@ const Products = () => {
                     </div>
                 )}
 
-                <div className="cart-btn" title='View Cart'>
+                <div className={`cart-btn ${(cart.length===0?'':'bounce')}`} title='View Cart'>
                     <button className="" onClick={handleShowCartForm}>
                         <IoCartOutline className='text-success' size={30} />
                         <span class="badge">
@@ -145,7 +145,7 @@ const Products = () => {
             </div>
             {isOpensuccess && (
                 <div className="modal-backdrop">
-                    <dialog className="modal-custom" style={{ position: 'relative' }} open>
+                    <dialog className="modal-custom res-margin" style={{ position: 'relative' }} open>
                         <div className='para-less-mp'>
                             <h3 className='fw-bold text-center lead mt-2 mb-3'>Cart</h3>
                             <hr />

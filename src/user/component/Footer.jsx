@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaLinkedin, FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { CiLocationOn } from "react-icons/ci";
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate=useNavigate()
     return (
         <div>
             <div className='mt-lg'>
@@ -19,8 +21,8 @@ const Footer = () => {
                                 </div>
                                 <div className="col-md-4">
                                     <ul>
-                                        <li>About Us</li>
-                                        <li>Get in touch</li>
+                                        <li onClick={()=>navigate('/about')}>About Us</li>
+                                        <li onClick={()=>navigate('/products')}>Buy Products</li>
                                     </ul>
                                 </div>
                                 <div className="col-md-4">

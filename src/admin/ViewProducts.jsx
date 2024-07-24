@@ -103,9 +103,9 @@ const ViewProducts = () => {
             </div>
             {isOpen && (
                 <div className="modal-backdrop">
-                    <dialog className="modal-custom" open>
+                    <dialog className="modal-custom res-margin" open>
                         <div className="modal-content border-0">
-                            <h3>Edit Product</h3>
+                            <h3 className='text-center'>Edit Products</h3>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <label htmlFor="productName" className="form-label">Product Name</label>
