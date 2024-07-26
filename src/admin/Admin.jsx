@@ -4,13 +4,16 @@ import { database } from './../firebase/firebase';
 import AdminNav from './AdminNav';
 import Footer from '../user/component/Footer';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../user/component/Loader';
 
 const Admin = () => {
     const [productName, setProductName] = useState('');
     const [productUrl, setProductUrl] = useState('');
     const [price, setPrice] = useState('');
+    const [loading,setLoading]=useState(false)
     const navigate=useNavigate()
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault();
         const dbRef = ref(database, 'products/' + Date.now());
         set(dbRef, {
@@ -19,10 +22,10 @@ const Admin = () => {
             price: price,
         })
             .then(() => {
-                alert('Product submitted successfully!');
                 setProductName('');
                 setProductUrl('');
                 setPrice('');
+                setLoading(false)
             })
             .catch((error) => {
                 console.error('Error submitting product: ', error);
@@ -45,6 +48,7 @@ const Admin = () => {
                             onChange={(e) => setProductName(e.target.value)}
                             required
                             className="form-control"
+                            placeholder='Enter Product Name'
                         />
                     </div>
                     <div className="form-group">
@@ -56,6 +60,7 @@ const Admin = () => {
                             onChange={(e) => setProductUrl(e.target.value)}
                             required
                             className="form-control"
+                            placeholder='Enter Image URL'
                         />
                     </div>
                     <div className="form-group">
@@ -67,13 +72,23 @@ const Admin = () => {
                             onChange={(e) => setPrice(e.target.value)}
                             required
                             className="form-control"
+                            placeholder='Enter Price'
                         />
                     </div>
                     <button type="submit" className="btn btn-primary mt-2">Submit</button>
                     <p className='text-center text-success' style={{cursor:'pointer'}} onClick={()=>navigate('/view')}>View Products?</p>
                 </form>
             </div>
-            </div>      
+            </div>    
+            <div className="login-loader">
+            {
+                loading && (
+                    <>
+                        <Loader />
+                    </>
+                )
+            } 
+            </div> 
             <Footer />     
         </div>
     );

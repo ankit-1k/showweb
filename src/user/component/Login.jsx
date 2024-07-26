@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import { auth, signInWithEmailAndPassword } from './../../firebase/firebase'; // Import signInWithEmailAndPassword
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Loader from './Loader';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+  const [loading, setLoading] = useState(false)
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       await signInWithEmailAndPassword(auth, email, password);
       window.location.href = '/admin';
+      setLoading(false)
     } catch (error) {
       setError(error.message);
     }
@@ -21,11 +24,11 @@ const Login = () => {
   return (
     <div className="login-container">
       <Navbar />
-      <div className='position-absolute'>
+      <div className='position-absolute mt-lg'>
         Email : ankitpanda922@gmail.com <br />
         Password : 123456
       </div>
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center mt-5">
         <div className="card mt-lg p-3 shadow res-margin" style={{ width: '30rem' }}>
           <form onSubmit={handleLogin}>
             <h2 className='mt-2 mb-3 text-center'>Login</h2>
@@ -55,6 +58,15 @@ const Login = () => {
             {error && <p className="text-danger text-center mt-3">{error}</p>}
           </form>
         </div>
+      </div>
+      <div className="login-loader">
+        {
+          loading && (
+            <>
+              <Loader />
+            </>
+          )
+        }
       </div>
       <Footer />
     </div>

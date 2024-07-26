@@ -4,7 +4,7 @@ import { ReactTyped } from 'react-typed';
 const Banner = () => {
     return (
         <div className="banner-container">
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     <div className="col-md-6">
                         <div className="d-flex justify-content-between md-center align-items-center h-60vh">

@@ -137,7 +137,7 @@ const Products = () => {
                 <div className={`cart-btn ${(cart.length===0?'':'bounce')}`} title='View Cart'>
                     <button className="" onClick={handleShowCartForm}>
                         <IoCartOutline className='text-success' size={30} />
-                        <span class="badge">
+                        <span className="badge">
                             {cart.length}
                         </span>
                     </button>
